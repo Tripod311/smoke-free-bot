@@ -4,6 +4,7 @@ const { create_prefix, seconds_to_format } = require("./common.js");
 async function SmokeHandler (ctx) {
 	const id = ctx.from.id;
 
+	DB.checkUpdate(id);
 	let info = DB.userInfo(id);
 
 	if (info.day_start === 0) {
